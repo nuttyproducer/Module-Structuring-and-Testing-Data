@@ -24,4 +24,7 @@ console.log(`£${pounds}.${pence}`);
 // Try and describe the purpose / rationale behind each step
 
 // To begin, we can start with
-// 1. const penceString = "399p": initialises a string variable with the value "399p"
+// 1. const penceString = "399p": initializes a string variable with the value "399p"
+// 2. Takes out the last character of the string "p"
+// 3. Makes sure we always have 3 digits by adding zeros to the beginning.
+// 4. Converts to pounds by subtracting 2 characters from the string. We only keep the first character.
