@@ -10,6 +10,7 @@ const remainingHours = totalHours % 24; // leftover hours after counting full da
 const totalDays = (totalHours - remainingHours) / 24; // total full days
 
 if (totalHours < 24) {
+  // I switched from >= to < to revert if else to show the correct console.log.
   console.log(
     `Time remaining: ${totalHours}:${remainingMinutes}:${remainingSeconds}`
   );
@@ -39,3 +40,7 @@ if (totalHours < 24) {
 
 // f) Try experimenting with different values of movieLength. Will this code work for all values of movieLength? Explain your answer
 //    - All round numbers work, decimal numbers too but gives strange outcome. Zero works too but outputs 0:0:0.
+
+// When we are showing 3661, this meanse 1 hour, 1 minute and 1 second. It will give us the output 1:1:1.
+// To do something about that we need to have extra methods in place in our conslole.log.
+// to.string and .padstart(2, "0")
