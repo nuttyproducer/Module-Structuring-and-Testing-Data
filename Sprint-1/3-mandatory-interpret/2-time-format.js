@@ -1,4 +1,4 @@
-const movieLength = 2603; // length of movie in seconds
+const movieLength = 3661; // length of movie in seconds
 
 const remainingSeconds = movieLength % 60; // Gives you the leftover seconds after calculating the minutes, this is a remainder
 const totalMinutes = (movieLength - remainingSeconds) / 60; // total full minutes
@@ -9,13 +9,13 @@ const totalHours = (totalMinutes - remainingMinutes) / 60; // total full hours
 const remainingHours = totalHours % 24; // leftover hours after counting full days
 const totalDays = (totalHours - remainingHours) / 24; // total full days
 
-if (totalHours >= 24) {
+if (totalHours < 24) {
   console.log(
     `Time remaining: ${totalHours}:${remainingMinutes}:${remainingSeconds}`
   );
 } else {
   console.log(
-    `Time remaining: ${totalDays} Days, ${totalHours}:${remainingMinutes}:${remainingSeconds}`
+    `Time remaining: ${totalDays} Days, ${remainingHours}:${remainingMinutes}:${remainingSeconds}`
   );
 }
 
