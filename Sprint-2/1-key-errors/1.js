@@ -6,15 +6,22 @@
 // Try playing computer with the example to work out what is going on
 
 function convertToPercentage(decimalNumber) {
-  const decimalNumber = 0.5;
+  const decimalNumber = 0.5; // We can delete this declaration and use 0.5 in the console.
   const percentage = `${decimalNumber * 100}%`;
 
   return percentage;
 }
 
-console.log(decimalNumber);
+console.log(decimalNumber); // Can't run declaration outside of the function.
 
 // =============> write your explanation here
 
 // Finally, correct the code to fix the problem
 // =============> write your new code here
+
+function convertToPercentage(decimalNumber) {
+  const percentage = `${decimalNumber * 100}%`;
+  return percentage;
+}
+
+console.log(convertToPercentage(0.5));
