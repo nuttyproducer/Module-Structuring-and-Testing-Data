@@ -23,23 +23,14 @@
 // console.log(`£${pounds}.${pence}`);
 
 function toPounds(penceMarkup) {
-  const penceString = penceMarkup.toString();
-  let penceStringWithoutTrailingP = penceString;
+  let penceString = penceMarkup.toString();
   if (penceString.endsWith("p")) {
     // used something new we did not learn called .endsWith
-    penceStringWithoutTrailingP = penceString.slice(0, -1);
+    penceString = penceString.slice(0, -1);
   }
-  const paddedPenceNumberString = penceStringWithoutTrailingP
-    .toString()
-    .padStart(3, "0");
-  const pounds = paddedPenceNumberString.substring(
-    0,
-    paddedPenceNumberString.length - 2
-  );
-  const pence = paddedPenceNumberString
-    .substring(paddedPenceNumberString.length - 2)
-    .padEnd(2, "0");
-  return `£${pounds}.${pence}`;
+  let pounds = (parseFloat(penceString) / 100).toFixed(2);
+
+  return `£${pounds}`;
 }
 
 console.log(toPounds("4520p")); // £45.20
@@ -59,3 +50,9 @@ console.log(toPounds(123)); // £1.23
 // Some errors VS code isn't catching correctly:
 // TypeError: penceStringWithoutTrailingP.padStart is not a function => codesteps.dev
 // I will add the correct if function to our already existing function + .toString so we always work with a string.
+
+// Wow! What en eyeopening exercise this was! It learned me to think
+// about what's the most easy solution for the problem...
+// We have Pence and indeed when you want pounds you just divide it by 100.
+// Take the .toFixed(2) to only get 2 decimals after the comma.
+// PERFECT!
