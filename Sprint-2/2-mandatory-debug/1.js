@@ -19,3 +19,5 @@ function sum(a, b) {
 }
 
 console.log(`The sum of 10 and 32 is ${sum(10, 32)}`);
+
+// Outcome: The sum of 10 and 32 is 42
