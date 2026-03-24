@@ -30,6 +30,8 @@ function getCardValue(card) {
     return 3;
   } else if (rank === "2") {
     return 2;
+  } else {
+    throw new Error("Invalid card");
   }
 }
 
