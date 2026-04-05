@@ -9,29 +9,14 @@
 // just make one change at a time -- don't rush -- programmers are deep and careful thinkers
 function getCardValue(card) {
   const rank = card.slice(0, -1);
-
   if (rank === "A") {
     return 11;
   } else if (rank === "K" || rank === "Q" || rank === "J" || rank === "10") {
     return 10;
-  } else if (rank === "9") {
-    return 9;
-  } else if (rank === "8") {
-    return 8;
-  } else if (rank === "7") {
-    return 7;
-  } else if (rank === "6") {
-    return 6;
-  } else if (rank === "5") {
-    return 5;
-  } else if (rank === "4") {
-    return 4;
-  } else if (rank === "3") {
-    return 3;
-  } else if (rank === "2") {
-    return 2;
+  } else if (!isNaN(rank) && rank !== "") {
+    return parseInt(rank, 10);
   } else {
-    throw new Error("Invalid card");
+    throw new Error("Invalid card rank detected");
   }
 }
 
@@ -101,5 +86,10 @@ const nineofClubs = getCardValue("9♣");
 assertEquals(nineofClubs, 9);
 
 // Handles invalid cards
-const invalidCard = getCardValue("Z♠");
-assertEquals(invalidCard, undefined);
+try {
+  getCardValue("Z♠");
+  // If no error is thrown, fail the test
+  assertEquals("No error thrown", "Error should have been thrown");
+} catch (e) {
+  assertEquals(e.message, "Invalid card rank detected");
+}

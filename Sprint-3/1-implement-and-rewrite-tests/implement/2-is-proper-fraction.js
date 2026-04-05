@@ -8,9 +8,14 @@
 // write one test at a time, and make it pass, build your solution up methodically
 
 function isProperFraction(numerator, denominator) {
-  if (numerator < denominator) {
-    return true;
+  // Check for valid numbers => If numerator is NOT a finite number, or denominator is NOT a finite number, return false.
+  if (!Number.isFinite(numerator) || !Number.isFinite(denominator)) {
+    return false;
   }
+  if (denominator === 0) {
+    return false; // Division by zero is not a valid fraction
+  }
+  return Math.abs(numerator) < Math.abs(denominator);
 }
 
 // The line below allows us to load the isProperFraction function into tests in other files.

@@ -6,6 +6,7 @@
 // The assertion error will tell you what the expected output is
 // Write the code to pass the test
 // Then, write the next test! :) Go through this process until all the cases are implemented
+const obtuseAngle = "Obtuse angle";
 
 function getAngleType(angle) {
   if (angle < 90) {
@@ -15,13 +16,12 @@ function getAngleType(angle) {
     return "Right angle";
   }
   if (angle < 180) {
-    return "Obtuse angle";
+    return obtuseAngle;
   }
   if (angle === 180) {
     return "Straight angle";
-  } else {
-    return "Reflex angle";
   }
+  return "Reflex angle"; // Removed else as it will always fall here if none of the previous choices get selected.
 }
 
 // The line below allows us to load the getAngleType function into tests in other files.
